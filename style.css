@@ -1,206 +1,106 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+// =======================
+// Navbar Scroll Effect
+// =======================
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+// =======================
+// Smooth Scrolling
+// =======================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
+
+// =======================
+// Reveal Animation
+// =======================
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            element.classList.add("active");
+        }
+    });
 }
 
-body{
-    background:#f4f7fb;
-    color:#333;
-}
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
-/* Navigation */
+// =======================
+// Active Navigation Link
+// =======================
 
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:20px 80px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    transition:.4s;
-    z-index:1000;
-}
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
 
-nav.scrolled{
-    background:#0f172a;
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
+window.addEventListener("scroll", () => {
 
-.logo{
-    color:#fff;
-    font-size:28px;
-    font-weight:700;
-}
+    let current = "";
 
-.nav-links{
-    display:flex;
-    list-style:none;
-}
+    sections.forEach(section => {
 
-.nav-links li{
-    margin-left:30px;
-}
+        const sectionTop = section.offsetTop - 150;
 
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    font-weight:500;
-    transition:.3s;
-}
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
 
-.nav-links a:hover{
-    color:#38bdf8;
-}
+    });
 
-/* Hero */
+    navLinks.forEach(link => {
 
-.hero{
-    height:100vh;
-    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+        link.classList.remove("active");
 
-.hero-content{
-    color:white;
-}
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
 
-.hero h1{
-    font-size:60px;
-}
+    });
 
-.hero p{
-    font-size:20px;
-    margin:20px 0;
-}
+});
 
-.btn{
-    display:inline-block;
-    background:#38bdf8;
-    color:white;
-    text-decoration:none;
-    padding:15px 35px;
-    border-radius:30px;
-    transition:.3s;
-}
+// =======================
+// Floating Card Click Effect
+// =======================
 
-.btn:hover{
-    background:#0284c7;
-    transform:translateY(-3px);
-}
+const cards = document.querySelectorAll(".card");
 
-/* Sections */
+cards.forEach(card => {
 
-section{
-    padding:90px 10%;
-}
+    card.addEventListener("click", () => {
 
-section h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:38px;
-}
+        card.style.transform = "translateY(-20px) scale(1.05)";
+        card.style.transition = "0.4s ease";
 
-/* Cards */
+        setTimeout(() => {
+            card.style.transform = "";
+        }, 400);
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
+    });
 
-.card{
-    background:white;
-    padding:30px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card i{
-    font-size:45px;
-    color:#38bdf8;
-    margin-bottom:20px;
-}
-
-/* Contact */
-
-form{
-    max-width:600px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-}
-
-form input,
-form textarea{
-    margin:10px 0;
-    padding:15px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    outline:none;
-}
-
-form button{
-    padding:15px;
-    background:#0f172a;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-form button:hover{
-    background:#38bdf8;
-}
-
-/* Footer */
-
-footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-/* Responsive */
-
-@media(max-width:768px){
-
-nav{
-    padding:15px 30px;
-    flex-direction:column;
-}
-
-.nav-links{
-    margin-top:15px;
-}
-
-.hero h1{
-    font-size:40px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-}
+});

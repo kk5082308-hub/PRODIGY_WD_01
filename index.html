@@ -5,116 +5,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Explorer</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+<!-- ================= NAVBAR ================= -->
+
+<header>
     <nav id="navbar">
-        <div class="logo">Travel Explorer</div>
+        <div class="logo">
+            <i class="fa-solid fa-earth-asia"></i>
+            Travel Explorer
+        </div>
 
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#features">Features</a></li>
+            <li><a href="#destinations">Destinations</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Explore the World</h1>
-            <p>Discover breathtaking destinations and unforgettable experiences.</p>
-            <a href="#features" class="btn">Get Started</a>
-        </div>
-    </section>
+<!-- ================= HERO ================= -->
 
-    <!-- About -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Discover The World</h1>
+
         <p>
-            Travel Explorer helps you discover the world's most beautiful places
-            with affordable packages and unforgettable adventures.
+            Adventure awaits you. Explore breathtaking destinations,
+            luxury vacations, and unforgettable memories.
         </p>
-    </section>
 
-    <!-- Features -->
-    <section id="features" class="features">
-        <h2>Our Features</h2>
+        <a href="#destinations" class="btn">
+            Explore Now
+        </a>
 
-        <div class="cards">
+    </div>
 
-            <div class="card">
-                <i class="fas fa-map-marked-alt"></i>
-                <h3>Beautiful Destinations</h3>
-                <p>Explore amazing locations around the globe.</p>
-            </div>
+</section>
 
-            <div class="card">
-                <i class="fas fa-wallet"></i>
-                <h3>Affordable Packages</h3>
-                <p>Travel within your budget with premium services.</p>
-            </div>
+<!-- ================= ABOUT ================= -->
 
-            <div class="card">
-                <i class="fas fa-headset"></i>
-                <h3>24/7 Support</h3>
-                <p>Our team is always ready to assist you anytime.</p>
-            </div>
+<section id="about">
 
+    <h2>Why Travel With Us?</h2>
+
+    <div class="about-container">
+
+        <div class="about-box reveal">
+            <i class="fas fa-plane"></i>
+            <h3>Easy Booking</h3>
+            <p>Book your dream vacation within minutes.</p>
         </div>
-    </section>
 
-    <!-- Services -->
-    <section id="services" class="services">
-        <h2>Services</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Holiday Packages</h3>
-                <p>Customized tours for families and individuals.</p>
-            </div>
-
-            <div class="card">
-                <h3>Hotel Booking</h3>
-                <p>Comfortable stays at the best prices.</p>
-            </div>
-
-            <div class="card">
-                <h3>Adventure Trips</h3>
-                <p>Exciting trekking, camping and wildlife tours.</p>
-            </div>
-
+        <div class="about-box reveal">
+            <i class="fas fa-globe"></i>
+            <h3>Worldwide Tours</h3>
+            <p>More than 150 destinations across the globe.</p>
         </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
+        <div class="about-box reveal">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Our team is always ready to help you.</p>
+        </div>
 
-        <form>
-            <input type="text" placeholder="Your Name" required>
+    </div>
 
-            <input type="email" placeholder="Your Email" required>
+</section>
 
-            <textarea rows="5" placeholder="Your Message"></textarea>
+<!-- ================= DESTINATIONS ================= -->
 
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+<section id="destinations">
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Travel Explorer | All Rights Reserved</p>
-    </footer>
+    <h2>Popular Destinations</h2>
 
-    <script src="script.js"></script>
+    <div class="cards">
+
+        <div class="card reveal">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt="Bali">
+            <h3>Bali</h3>
+            <p>Relax on tropical beaches and enjoy stunning sunsets.</p>
+        </div>
+
+        <div class="card reveal">
+            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=800" alt="Switzerland">
+            <h3>Switzerland</h3>
+            <p>Experience breathtaking mountains and scenic lakes.</p>
+        </div>
+
+        <div class="card reveal">
+            <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800" alt="Paris">
+            <h3>Paris</h3>
+            <p>Visit the city of lights and unforgettable landmarks.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+    <h2>Our Services</h2>
+
+    <div class="service-grid">
+
+        <div class="service reveal">
+            <i class="fas fa-hotel"></i>
+            <h3>Hotel Booking</h3>
+        </div>
+
+        <div class="service reveal">
+            <i class="fas fa-plane-departure"></i>
+            <h3>Flight Booking</h3>
+        </div>
+
+        <div class="service reveal">
+            <i class="fas fa-map"></i>
+            <h3>Tour Guides</h3>
+        </div>
+
+        <div class="service reveal">
+            <i class="fas fa-passport"></i>
+            <h3>Visa Assistance</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2>Contact Us</h2>
+
+    <form>
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Email Address" required>
+
+        <textarea placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="btn">
+            Send Message
+        </button>
+
+    </form>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Travel Explorer | Designed by Keerthi
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
